@@ -1,0 +1,27 @@
+﻿@model IEnumerable<Tuple<string, int>>
+
+@{
+    ViewData["Title"] = "Stats";
+}
+<h3>Attendance statistics:</h3>
+@foreach (var item in Model)
+{
+    @if (item.Item1 == "Yes")
+    {
+        <div class="bg-success">
+            <strong>@item.Item1: </strong>@item.Item2
+        </div>
+    }
+    else if (item.Item1 == "No")
+    {
+        <div class="bg-danger">
+            <strong>@item.Item1: </strong>@item.Item2
+        </div>
+    }
+    else
+    {
+        <div class="bg-warning">
+            <strong>@item.Item1: </strong>@item.Item2
+        </div>
+    }
+}
