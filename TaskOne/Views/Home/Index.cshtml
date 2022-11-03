@@ -7,29 +7,36 @@
 <h2>Simple RSVP</h2>
 <hr />
 <form asp-controller="Home" asp-action="RegisterUser" method="post">
-    <div class="d-inline-block">
-        <span style="display: flex"><strong>Name</strong><strong style="color: #FF0000">*</strong></span>
-        <input id="fName" size="10" asp-for="FirstName" />
-        <br />
-        <label for="fName">First</label>
+    <div>
+        <div class="d-inline-block">
+            <span style="display: flex"><strong>Name</strong><strong class="text-danger">*</strong></span>
+            <input id="fName" size="10" asp-for="FirstName" />
+            <br />
+            <label for="fName">First</label>
+            <br />
+        </div>
+        <div class="d-inline-block">
+            <input id="lName" size="25" asp-for="LastName" />
+            <br />
+            <label for="lName">Last</label>
+            <br />
+        </div>
     </div>
-    <div class="d-inline-block">
-        <input id="lName" size="25" asp-for="LastName" />
-        <br />
-        <label for="lName">Last</label>
-    </div>
-
+    <span asp-validation-for="FirstName" class="text-danger"></span>
+    <br />
+    <span asp-validation-for="LastName" class="text-danger"></span>
     <div class="div-bg">
-        <span style="display: flex"><strong>Are you able to attend?</strong><strong style="color: #FF0000">*</strong></span>
-        <input id="yes" type="radio" name="option" value="Yes" asp-for="Option"/>
+        <span style="display: flex"><strong>Are you able to attend?</strong><strong class="text-danger">*</strong></span>
+        <input id="yes" type="radio" value="Yes" asp-for="Option"/>
         <label for="yes">Yes</label>
         <br />
-        <input id="no" type="radio" name="option" value="No" asp-for="Option" />
+        <input id="no" type="radio" value="No" asp-for="Option" />
         <label for="no">No</label>
         <br />
-        <input id="notSure" type="radio" name="option" value="Not Sure" checked="checked" asp-for="Option" />
+        <input id="notSure" type="radio" value="Not Sure" asp-for="Option" />
         <label for="notSure">Not sure</label>
         <br />
+        <span asp-validation-for="Option" class="text-danger"></span>
     </div>
     <input class="btn-success" type="submit" value="Register"/>
 </form>
