@@ -19,6 +19,7 @@ namespace TaskOne.Controllers
 
         public IActionResult Index()
         {
+            ViewBag.RegistrationMessage = (string?)TempData["Message"];
             return View();
         }
 
@@ -28,8 +29,10 @@ namespace TaskOne.Controllers
             if (ModelState.IsValid)
             {
                 await _userDataRepository.RegisterData(userViewModel);
+                TempData["Message"] = "Registration successful!";
             }
-            return RedirectToAction("Index", "Home");
+            
+            return RedirectToAction("Index");
         }
 
         public async Task<IActionResult> Stats()
