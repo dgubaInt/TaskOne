@@ -22,3 +22,8 @@ body {
     margin-bottom: 2rem;
     background-color: #fff4ce;
 }
+
+.div-h-center {
+    display: flex;
+    justify-content: center;
+}

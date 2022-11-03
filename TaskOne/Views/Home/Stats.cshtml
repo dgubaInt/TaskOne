@@ -3,25 +3,28 @@
 @{
     ViewData["Title"] = "Stats";
 }
-<h3>Attendance stats:</h3>
-@foreach (var item in Model)
-{
-    @if (item.Item1 == "Yes")
-    {
-        <div class="bg-success">
-            <strong>@item.Item1: </strong>@item.Item2
-        </div>
-    }
-    else if (item.Item1 == "No")
-    {
-        <div class="bg-danger">
-            <strong>@item.Item1: </strong>@item.Item2
-        </div>
-    }
-    else
-    {
-        <div class="bg-warning">
-            <strong>@item.Item1: </strong>@item.Item2
-        </div>
-    }
-}
+
+<div class="div-h-center">
+    <h3>Attendance stats:</h3>
+</div>
+<div class="div-h-center">
+    <table class="table">
+        <thead>
+            <tr>
+                @foreach (var item in Model)
+                {
+                    <th scope="col">@item.Item1</th>
+                }
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                @foreach (var item in Model)
+                {
+                    <td>@item.Item2</td>
+                }
+            </tr>
+        </tbody>
+    </table>
+</div>
+
